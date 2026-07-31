@@ -1,5 +1,6 @@
 package dev.Java10x.CadastroDeNinjas;
 
+import dev.Java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 @Entity //Criar com as informações tabelas, como de nome, email..
@@ -9,8 +10,15 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome, email;
+
     private int idade;
+
+//    Somente para um unico elemento. Ex: Um ninja só pode ter uma missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")  //Foreing Key ou chave estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
