@@ -7,13 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity //Criar com as informações tabelas, como de nome, email..
-@Table(name = "tb_cadastro")
+@Table(name = "tb_cadastro") //Para setar o nome pelo qual a classe vai ser chamada
 @AllArgsConstructor //Faz com que construtores com todos os argumentos sejam feitos automaticamente
 @NoArgsConstructor //Faz um construtor vazio. Economizando muitas linhas
 @Data //Faz os getters e setters tbm automaticamente, mesmo quando são adicionados depois
 public class NinjaModel {
 
-    @Id
+    @Id //Para o java determinar um id de uma tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

@@ -16,7 +16,12 @@ public class MissoesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nomeDaMissao;
+
+    @Column(unique = true) //Vai determinar que somente um email possa ser feito, não deixa repetir
+    private String email;
+
     private String dificuldade;
 
 //  Uma(one) missao para Muitos(many) ninjas
