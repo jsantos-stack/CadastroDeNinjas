@@ -15,11 +15,17 @@ public class NinjaModel {
 
     @Id //Para o java determinar um id de uma tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id") //Somente para dar nome a coluna feita
     private Long id;
 
+    @Column(name = "nome")
     private String nome, email;
 
+@Column(name = "idade")
     private int idade;
+
+    @Column(name = "ing_url")
+    private String ingUrl;
 
 //    Somente para um unico elemento. Ex: Um ninja só pode ter uma missao
     @ManyToOne
