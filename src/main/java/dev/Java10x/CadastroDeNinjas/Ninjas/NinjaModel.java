@@ -16,25 +16,23 @@ public class NinjaModel {
     @Id //Para o java determinar um id de uma tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id") //Somente para dar nome a coluna feita
-    private Long id;
+    private long id;
 
     @Column(name = "nome")
-    private String nome, email;
+    private String nome;
 
-@Column(name = "idade")
+    @Column(unique = true)
+    private String email;
+
+    @Column(name = "idade")
     private int idade;
 
     @Column(name = "ing_url")
     private String ingUrl;
 
-//    Somente para um unico elemento. Ex: Um ninja só pode ter uma missao
+    //    Somente para um unico elemento. Ex: Um ninja só pode ter uma missao
     @ManyToOne
     @JoinColumn(name = "missoes_id")  //Foreing Key ou chave estrangeira
     private MissoesModel missoes;
 
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
 }
