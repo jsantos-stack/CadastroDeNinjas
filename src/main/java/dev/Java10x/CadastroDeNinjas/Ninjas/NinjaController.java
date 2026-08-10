@@ -33,10 +33,12 @@ public class NinjaController {
         return ninjaService.listarNinjas();
     }
 
+    // O id ao lado de listar é para selecionar qual o id vc quer escolher
+    // @pathvariable torna o parametro para o mapeamento do caminho
     // Mostrar Ninja por ID (READ)
-    @GetMapping("/listarID")
-    public String mostrarTodosOsNinjasPorId() {
-        return "Mostrar ninja por Id";
+    @GetMapping("/listar/{id}")
+    public NinjaModel listarNinjasPorId(@PathVariable long id) {
+        return ninjaService.listasNinjasPorID(id);
     }
 
     // Alterar dados dos ninjas(UPDATE)
