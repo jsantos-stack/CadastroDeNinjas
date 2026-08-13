@@ -1,8 +1,6 @@
 package dev.Java10x.CadastroDeNinjas.Ninjas;
 
 import org.springframework.stereotype.Service;
-
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,4 +25,15 @@ public class NinjaService {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
     }
+
+    // Criar um ninja
+    public NinjaModel criarNinja(NinjaModel ninja) {
+        return ninjaRepository.save(ninja);
+    }
+
+    // Deletar o ninja - Tem que ser um metodo VOID
+    public void deletarNinjasPorId(Long id) {
+        ninjaRepository.deleteById(id);
+    }
+
 }

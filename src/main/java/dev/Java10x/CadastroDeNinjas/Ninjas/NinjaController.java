@@ -1,11 +1,11 @@
 package dev.Java10x.CadastroDeNinjas.Ninjas;
-import org.apache.coyote.http11.filters.SavedRequestInputFilter;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController  // isso é um controlador
-@RequestMapping // para colocar todas as rotas no mesmo lugar
+@RequestMapping ("/ninja")// para colocar todas as rotas no mesmo lugar
 public class NinjaController {
 
     private NinjaService ninjaService;
@@ -22,10 +22,9 @@ public class NinjaController {
     //    C.R.U.D
     // Adicionar ninja (CREATE)
     @PostMapping("/criar")
-    public String criarNinja() {
-        return "Ninja criado";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel) {// serialização contraria
+        return ninjaService.criarNinja(ninjaModel);
     }
-
 
     //Mostrar todos os ninjs (READ)
     @GetMapping("/listar")
@@ -48,11 +47,8 @@ public class NinjaController {
     }
 
     // Deletar Ninja(DELETE)
-    @DeleteMapping("/deletarID")
-    public String deletarNinjaPorId() {
-        return "Ninja deletado por id";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorId(@PathVariable Long id ) { //pathvariable é para que seja usado na url
+    ninjaService.deletarNinjasPorId(id);
     }
-
-
-
 }
