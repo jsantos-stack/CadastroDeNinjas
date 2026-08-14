@@ -1,8 +1,11 @@
 package dev.Java10x.CadastroDeNinjas.Missoes;
+import dev.Java10x.CadastroDeNinjas.Ninjas.NinjaModel;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MissoesService {
 
     //Serializar é fazer com que as funções feitas no banco de dados possam ser traduzidos pela JPA
@@ -32,6 +35,15 @@ public class MissoesService {
     // Deletar o ninja - Tem que ser um metodo VOID
     public void deletarMissaoPorId(Long id) {
         missoesRepository.deleteById(id);
+    }
+
+    // Atualizar missao
+    public MissoesModel atualizarMissao(Long id, MissoesModel missaoAtualizado) {
+        if (missoesRepository.existsById(id)) {
+            missaoAtualizado.setId(id);
+            return missoesRepository.save(missaoAtualizado);
+        }
+        return null;
     }
 
 }

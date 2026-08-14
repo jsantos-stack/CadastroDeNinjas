@@ -1,11 +1,12 @@
 package dev.Java10x.CadastroDeNinjas.Missoes;
 
+import dev.Java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/missoes")
 public class MissoesController { @GetMapping("/boasvindasmissoes") //criando a rota
 public String boasVindas() {
     return "Essa é a minha mensagem das missoes para tu";
@@ -42,6 +43,12 @@ public String boasVindas() {
     @PutMapping("/alteraridmissao")
     public String alterarMissaoPorId() {
         return "Alterar Missão por id";
+    }
+
+    // Alterar dados dos ninjas(UPDATE)
+    @PutMapping("/alterarmissao/{id}")
+    public MissoesModel alterarMissaoPorId(@PathVariable Long id, @RequestBody MissoesModel missaoAtualizado) {
+        return missoesService.atualizarMissao(id, missaoAtualizado);
     }
 
     // Deletar Ninja(DELETE)
