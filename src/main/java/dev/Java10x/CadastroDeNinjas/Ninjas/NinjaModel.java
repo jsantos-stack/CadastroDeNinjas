@@ -30,6 +30,9 @@ public class NinjaModel {
     @Column(name = "ing_url")
     private String ingUrl;
 
+    @Column(name = "rank")
+    private String rank;
+
     //    Somente para um unico elemento. Ex: Um ninja só pode ter uma missao
     @ManyToOne
     @JoinColumn(name = "missoes_id")  //Foreing Key ou chave estrangeira
