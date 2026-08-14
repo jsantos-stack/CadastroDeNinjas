@@ -22,8 +22,8 @@ public class NinjaController {
     //    C.R.U.D
     // Adicionar ninja (CREATE)
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel) {// serialização contraria
-        return ninjaService.criarNinja(ninjaModel);
+    public NinjaDto criarNinja(@RequestBody NinjaDto ninja) {// serialização contraria
+        return ninjaService.criarNinja(ninja);
     }
 
     //Mostrar todos os ninjs (READ)

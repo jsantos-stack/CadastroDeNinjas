@@ -10,6 +10,7 @@ public class NinjaService {
     //Serializar é fazer com que as funções feitas no banco de dados possam ser traduzidos pela JPA
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
     public NinjaService(NinjaRepository ninjaRepository) {
         this.ninjaRepository = ninjaRepository;
@@ -27,8 +28,10 @@ public class NinjaService {
     }
 
     // Criar um ninja
-    public NinjaModel criarNinja(NinjaModel ninja) {
-        return ninjaRepository.save(ninja);
+    public NinjaDto criarNinja(NinjaDto ninjaDto) {
+        NinjaModel ninja = ninjaMapper.map(ninjaDto);
+        ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
     // Deletar o ninja - Tem que ser um metodo VOID
