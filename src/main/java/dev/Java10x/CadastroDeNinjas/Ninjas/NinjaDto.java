@@ -12,6 +12,8 @@ public class NinjaDto {
 /*
 DTO = Data Transfer Object.
 É um objeto criado especificamente para transportar dados entre camadas, principalmente entre a API e sua aplicação.
+ Ele tira a responsabilidade do seu model e passar para a sua api somente oq você quer sem necessariamente
+ expor seu model a todos
  */
 
     private long id;
