@@ -11,11 +11,12 @@ public class NinjaService {
 
     //Serializar é fazer com que as funções feitas no banco de dados possam ser traduzidos pela JPA
 
-    private NinjaRepository ninjaRepository;
-    private NinjaMapper ninjaMapper;
+    private final  NinjaRepository ninjaRepository;
+    private final NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     // Listar todos os meus ninjas
